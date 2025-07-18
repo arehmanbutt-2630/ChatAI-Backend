@@ -1,0 +1,5 @@
+[
+  {"prompt": "Hello", "response": "Hello from Gemini! How can I assist you?"},
+  {"prompt": "Tell me a joke", "response": "Why do programmers prefer dark mode? Because light attracts bugs!"},
+  {"prompt": "What is AI?", "response": "AI is the field of making machines intelligent, like me!"}
+] 
