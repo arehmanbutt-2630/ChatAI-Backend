@@ -8,12 +8,18 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy app source
+# Copy app source code
 COPY . .
 
 # Set environment variables
 ENV FLASK_APP=run.py
-ENV FLASK_ENV=development
+ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=5000
+ENV FLASK_ENV=production
 
-# Run the app
-CMD ["flask", "run", "--host=0.0.0.0"]
+# Copy the entrypoint script and make it executable
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Run the entrypoint script on container start
+ENTRYPOINT ["/entrypoint.sh"]
